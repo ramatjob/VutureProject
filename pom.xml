@@ -97,7 +97,7 @@
                 <version>${maven-surefire-version}</version>
                 <configuration>
                     <suiteXmlFiles>
-                        <suiteXmlFile>src/test/java/com/vuture/testngxml/FindVehicle.xml</suiteXmlFile>
+                        <suiteXmlFile>src/test/java/com/vuture/testngxml/VuturePortal.xml</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
             </plugin>
@@ -114,7 +114,7 @@
 
     <profiles>
         <profile>
-            <id>runFindVehicleTests</id>
+            <id>runVuturePortalTests</id>
             <build>
                 <plugins>
                     <plugin>
@@ -129,7 +129,7 @@
                                 <configuration>
                                     <testFailureIgnore>true</testFailureIgnore>
                                     <suiteXmlFiles>
-                                        <suiteXmlFile>src/test/java/com/volkswagenfinance/testngxml/FindVehicle.xml</suiteXmlFile>
+                                        <suiteXmlFile>src/test/java/com/volkswagenfinance/testngxml/VuturePortal.xml</suiteXmlFile>
                                     </suiteXmlFiles>
                                 </configuration>
                             </execution>
