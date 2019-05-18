@@ -37,8 +37,8 @@ mvn verify -Dprofile=runVuturePortalTests -DbrowserType=Chrome -DgridType=Local 
 
 ### How to check the reports ###
 
-Under the project base folder, you can find the `target` folder (In my case, it is C:\MyProjects\VutureProject). So under the `target` folder, please navigate to `/cucumber-reports/advanced-reports/cucumber-html-reports/overview-features.html`
+Under the project base folder, you can find the `target` folder (In my case, it is `C:\MyProjects\VutureProject`). So under the `target` folder, please navigate to `/cucumber-reports/advanced-reports/cucumber-html-reports/overview-features.html`
 
-For example, in my local machine, `VolkswagenInsurancePortal` project is kept under `C:\MyProjects\VutureProject`. So the report will be available in the `C:\MyProjects\VutureProject\target\cucumber-reports\advanced-reports\cucumber-html-reports\overview-features.html`
+For example, in my local machine, `VutureProject` project is kept under `C:\MyProjects\VutureProject`. So the report will be available in the `C:\MyProjects\VutureProject\target\cucumber-reports\advanced-reports\cucumber-html-reports\overview-features.html`
 
 So open the `overview-features.html` in any browser, it will show you the full test execution report
