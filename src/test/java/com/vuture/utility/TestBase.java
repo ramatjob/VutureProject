@@ -11,12 +11,7 @@ import java.util.logging.Logger;
 
 public class TestBase {
 
-    WebDriver driver;
-
-//    private String browserType = "Chrome";
-//    private static String gridType = "Local";
-//    private static String platformType = "WIN32";
-//    private static String environmentType = "qa";
+    private WebDriver driver;
 
     private String browserType = System.getProperty("browserType");
     private static String gridType = System.getProperty("gridType");

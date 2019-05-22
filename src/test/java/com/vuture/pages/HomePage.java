@@ -5,13 +5,8 @@ import com.vuture.pageproperties.HomePageProperty;
 import com.vuture.utility.CommonFunctions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
-import java.util.List;
-import java.util.Set;
 
 public class HomePage extends CommonFunctions {
     By CreateEmailCampaignLinkLocator = By.xpath(HomePageProperty.CreateEmailCampaignLink);
@@ -26,7 +21,7 @@ public class HomePage extends CommonFunctions {
     By EmailStatusLocator = By.xpath(HomePageProperty.EmailStatus);
 
 
-    WebDriver driver;
+    private WebDriver driver;
 
     public HomePage(WebDriver driver){
         super(driver);

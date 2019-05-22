@@ -1,7 +1,6 @@
 package com.vuture.utility;
 
 
-import org.omg.CORBA.TIMEOUT;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -14,7 +13,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class CommonFunctions {
-    WebDriver driver;
+    private WebDriver driver;
 
     public CommonFunctions(WebDriver driver){
         this.driver = driver;
@@ -94,11 +93,6 @@ public class CommonFunctions {
 
     public void wait_implicit_till_window_load(){
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-    }
-
-    public void closeAnyBrowser(){
-        driver.close();
-        driver = null;
     }
 
 }

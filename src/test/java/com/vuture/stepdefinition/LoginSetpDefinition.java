@@ -11,7 +11,7 @@ import org.openqa.selenium.WebDriver;
 
 
 public class LoginSetpDefinition {
-    WebDriver driver;
+    private WebDriver driver;
     private String url;
 
     private LoginPage loginPageObject;
@@ -20,14 +20,11 @@ public class LoginSetpDefinition {
 
     public LoginSetpDefinition(TestBase testBase){
         this.testBase = testBase;
-        //driver = testBase.initializeDriver();
-        //url = testBase.getUrl("VuturePortal");
     }
 
     @Given("^I launch the Vuture Portal login page$")
     public void luanchVuturePortalHomePage() {
         driver = testBase.initializeDriver();
-        //driver.get(url);
         url = testBase.getUrl("VuturePortal");
         testBase.launchUrl(url);
         loginPageObject = new LoginPage(driver);

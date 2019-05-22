@@ -1,17 +1,13 @@
 package com.vuture.stepdefinition;
 
 import com.vuture.pages.HomePage;
-import com.vuture.pages.LoginPage;
-import com.vuture.pages.LogoutPage;
 import com.vuture.utility.TestBase;
-import cucumber.api.java.Before;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class HomePageStepDefinition {
-    WebDriver driver;
+    private WebDriver driver;
     private HomePage homePageObject;
     private TestBase testBase;
 

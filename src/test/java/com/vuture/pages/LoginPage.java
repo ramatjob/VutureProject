@@ -7,8 +7,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
-import java.text.ParseException;
-
 public class LoginPage extends CommonFunctions {
 
     By UserNameBoxLocator = By.xpath(LoginPageProperty.UserNameBox);
@@ -16,7 +14,7 @@ public class LoginPage extends CommonFunctions {
     By SignInButtonLocator = By.xpath(LoginPageProperty.SignInButton);
     By WelcomeTextLocator = By.xpath(LoginPageProperty.WelcomeText);
 
-    WebDriver driver;
+    private WebDriver driver;
 
     public LoginPage(WebDriver driver){
         super(driver);

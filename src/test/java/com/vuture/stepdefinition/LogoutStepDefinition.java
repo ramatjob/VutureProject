@@ -8,7 +8,7 @@ import cucumber.api.java.en.Then;
 import org.openqa.selenium.WebDriver;
 
 public class LogoutStepDefinition {
-    WebDriver driver;
+    private WebDriver driver;
     private LogoutPage logoutPageObject;
     private TestBase testBase;
 
@@ -35,7 +35,6 @@ public class LogoutStepDefinition {
 
     @And("^I close the browser$")
     public void closeBrowser(){
-        //logoutPageObject.closeBrowser();
         testBase.tearDown();
     }
 
