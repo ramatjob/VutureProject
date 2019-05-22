@@ -7,55 +7,69 @@ import com.vuture.utility.TestBase;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class HomePageStepDefinition {
     WebDriver driver;
     private HomePage homePageObject;
+    private TestBase testBase;
 
     public HomePageStepDefinition(TestBase testBase){
-        driver = testBase.initializeDriver();
+        this.testBase = testBase;
+    }
+
+    @Given("^I click on create email campaign link$")
+    public void clickOnCreateEmailCampaignLink() throws InterruptedException {
+        driver = testBase.getDriver();
         homePageObject = new HomePage(driver);
+        homePageObject.clickOnCreateEmailCampaignLink();
     }
 
-    @Given("^I click on icon to create a new email campaign$")
-    public void clickOnTheCreateEmailCampaign() {
-        // implementation is pending
+    @And("^I entered a \"([^\"]*)\"$")
+    public void nameTheCampaign(String campaignName) throws InterruptedException {
+        homePageObject.enterCampaignNameintoTextBox(campaignName);
     }
 
-    @And("^I name the campaign on the left frame or i can pick a name of my choice$")
-    public void nameTheCampaign() {
-        // implementation is pending
+    @And("^I select the first email template from \"([^\"]*)\"$")
+    public void selectEmailTemplate(String emailLayout) {
+        homePageObject.selectEmailTemplate(emailLayout);
     }
 
-    @And("^I click on the create button for the first email template in the list$")
+    @And("^I click on the create button$")
     public void clickOnCreateButton() {
-        // implementation is pending
+        homePageObject.clickOnCreateButton();
     }
 
-    @And("^I verify that the container and campaign names are displayed at the top of the window$")
-    public void verifyTheContainerAndCampiagnNames() {
-        // implementation is pending
+
+    @And("^I verify that the \"([^\"]*)\" are displayed at the top of the window$")
+    public void verifyTheContainerAndCampiagnNames(String expectedContainerAndCampaignName) throws InterruptedException {
+        homePageObject.verifyContainerAndCapaignName(expectedContainerAndCampaignName);
     }
 
-    @And("^I click on the right-hand frame of the window, name the email, again pick a name of your choice$")
-    public void nameTheEmail() {
-        // implementation is pending
+    @And("^On the right hand frame, i enter an \"([^\"]*)\"$")
+    public void enterEmailName(String emailName) throws InterruptedException {
+        homePageObject.enterMailName(emailName);
     }
 
-    @And("^I click on invitation template to create a new email on the left-hand frame$")
-    public void clickOnInvitationTemplate() {
-        // implementation is pending
+    @And("^I click on the invitation icon$")
+    public void clickOnInvitationIcon() {
+        homePageObject.clickOnInvitationIcon();
     }
 
-    @And("^I click on publish email and the publish now$")
-    public void clickOnPublishEmailAndPublishNow() {
-        // implementation is pending
+    @And("^I click on publish email$")
+    public void clickOnPublishEmail() throws InterruptedException {
+        homePageObject.clickOnPublishEmail();
     }
 
-    @And("^I verify that the status of the email is coming as ‘Live’ in the published page$")
-    public void verifyTheStatusOfEmail() {
-        // implementation is pending
+    @And("^I click on publish now$")
+    public void clickOnPublishNow() throws InterruptedException {
+        homePageObject.clickOnPublishNow();
+    }
+
+    @And("^I verify that the \"([^\"]*)\" is coming as Live in the published page$")
+    public void verifyTheStatusOfEmail(String expectedEmailStatus) throws InterruptedException {
+        homePageObject.getEmailStatus(expectedEmailStatus);
     }
 
 

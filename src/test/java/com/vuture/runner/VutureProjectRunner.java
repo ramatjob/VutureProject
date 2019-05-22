@@ -7,7 +7,7 @@ import cucumber.api.testng.AbstractTestNGCucumberTests;
 @CucumberOptions(
         features = "src/test/resources/features",
         glue = {"com/vuture/stepdefinition"},
-        tags = {"~@Ignore"},
+        //tags = {"~@Ignore"},
         format = {
                 "pretty",
                 "html:target/cucumber-reports/cucumber-pretty",

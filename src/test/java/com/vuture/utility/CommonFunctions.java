@@ -1,12 +1,17 @@
 package com.vuture.utility;
 
 
+import org.omg.CORBA.TIMEOUT;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+
+import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class CommonFunctions {
     WebDriver driver;
@@ -17,7 +22,19 @@ public class CommonFunctions {
 
     public void wait_explicit_till_element_loaded(By by){
         WebDriverWait waitnew=new WebDriverWait(driver,20);
-        WebElement element = (WebElement) waitnew.until(ExpectedConditions.presenceOfElementLocated(by));
+        waitnew.until(ExpectedConditions.presenceOfElementLocated(by));
+    }
+
+    public void isElementClickableOnWebPage(By by){
+        WebDriverWait waitnew=new WebDriverWait(driver,20);
+        waitnew.until(ExpectedConditions.elementToBeClickable(by));
+    }
+
+    public void switchToFrame(String frameName) throws InterruptedException {
+        Thread.sleep(5000);
+        driver.switchTo().defaultContent();
+        WebDriverWait waitnew=new WebDriverWait(driver,20);
+        waitnew.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(frameName));
     }
 
     public void enterText(By byProp, String searchText) {
@@ -33,6 +50,12 @@ public class CommonFunctions {
     public String getAnyTextFromWebPage(By prop){
         wait_explicit_till_element_loaded(prop);
         return driver.findElement(prop).getText();
+    }
+
+    public void selectAnyValuFromDropdown(By byProp, String visibleText){
+        wait_explicit_till_element_loaded(byProp);
+        Select select = new Select(driver.findElement(byProp));
+        select.selectByVisibleText(visibleText);
     }
 
     public void isElementPresentOnWebPage(By byProp,String str1,String str2){
@@ -60,6 +83,17 @@ public class CommonFunctions {
             finalResult = false;
         }
         return finalResult;
+    }
+
+    public String getEmailStatus(By byProp){
+        List<WebElement> list = driver.findElements(byProp);
+        String str = list.get(1).getText();
+        String[] strArray = str.split(" ");
+        return strArray[2];
+    }
+
+    public void wait_implicit_till_window_load(){
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
     }
 
     public void closeAnyBrowser(){

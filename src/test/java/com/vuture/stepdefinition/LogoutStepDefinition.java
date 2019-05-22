@@ -10,17 +10,17 @@ import org.openqa.selenium.WebDriver;
 public class LogoutStepDefinition {
     WebDriver driver;
     private LogoutPage logoutPageObject;
+    private TestBase testBase;
 
     public LogoutStepDefinition(TestBase testBase){
-        driver = testBase.initializeDriver();
-        logoutPageObject = new LogoutPage(driver);
+        this.testBase = testBase;
     }
 
     @Given("^I click on logout button$")
     public void clickOnLogoutButton() throws InterruptedException {
-        Thread.sleep(3000);
+        driver = testBase.getDriver();
+        logoutPageObject = new LogoutPage(driver);
         logoutPageObject.clickOnLogoutButton();
-        Thread.sleep(3000);
     }
 
     @Then("^I can verify the Login page URL \"([^\"]*)\"$")
@@ -35,7 +35,8 @@ public class LogoutStepDefinition {
 
     @And("^I close the browser$")
     public void closeBrowser(){
-        logoutPageObject.closeBrowser();
+        //logoutPageObject.closeBrowser();
+        testBase.tearDown();
     }
 
 

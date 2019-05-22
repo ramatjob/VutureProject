@@ -85,7 +85,15 @@ public class TestBase {
         return new ChromeDriver(chromeOptions);
     }
 
-    public static String getUrl(String urlPath){
+    public void launchUrl(String url){
+        driver.get(url);
+    }
+
+    public WebDriver getDriver(){
+        return driver;
+    }
+
+    public String getUrl(String urlPath){
         String finalUrlPath = "";
         String finalURL = "";
         finalUrlPath = environmentType+"_url_"+urlPath;

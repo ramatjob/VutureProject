@@ -24,17 +24,14 @@ public class LoginPage extends CommonFunctions {
     }
 
     public void enterAValidUserName(String userName) throws InterruptedException {
-        isElementPresentOnWebPage(UserNameBoxLocator,"User name Box", "Vuture portal login Page");
         enterText(UserNameBoxLocator,userName);
     }
 
     public void enterAValidPassword(String password) throws InterruptedException {
-        isElementPresentOnWebPage(PasswordBoxLocator,"Password Box", "Vuture portal login Page");
         enterText(PasswordBoxLocator,password);
     }
 
     public void clickOnSigninButton() throws InterruptedException {
-        isElementPresentOnWebPage(SignInButtonLocator,"Login Button", "Vuture portal login Page");
         click(SignInButtonLocator);
     }
 

@@ -16,15 +16,20 @@ public class LoginSetpDefinition {
 
     private LoginPage loginPageObject;
     private HomePage homePageObject;
+    private TestBase testBase;
 
     public LoginSetpDefinition(TestBase testBase){
-        driver = testBase.initializeDriver();
-        url = testBase.getUrl("VuturePortal");
+        this.testBase = testBase;
+        //driver = testBase.initializeDriver();
+        //url = testBase.getUrl("VuturePortal");
     }
 
     @Given("^I launch the Vuture Portal login page$")
     public void luanchVuturePortalHomePage() {
-        driver.get(url);
+        driver = testBase.initializeDriver();
+        //driver.get(url);
+        url = testBase.getUrl("VuturePortal");
+        testBase.launchUrl(url);
         loginPageObject = new LoginPage(driver);
         loginPageObject.verifyTheTextinLoginPage();
     }
